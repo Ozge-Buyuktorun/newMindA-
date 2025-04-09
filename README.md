@@ -81,7 +81,10 @@
  - employeeList.json # JSON file containing employee data
  - server.js # Main server file for handling routes and requests
 
-
+## 🔹 Page's Screenshot
+ - ![Home Page](assets/screenshots/homePage.png)
+ - ![Product Page](assets/screenshots/productPage.png)
+ - ![Contact Page](assets/screenshots/contactPage.png)
 ## 🔹 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
