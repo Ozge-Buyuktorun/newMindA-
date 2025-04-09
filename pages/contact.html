@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact | My Web App</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <header>
+    <nav>
+      <a href="/">Home</a> |
+      <a href="/products">Products</a> |
+      <a href="/contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Contact Info -->
+  <section>
+    <h1>Contact Us</h1>
+    <p>You can reach us using the form below or via our contact details.</p>
+
+    <div>
+      <h2>Address</h2>
+      <p>123 Web Street, Internet City, 40400</p>
+
+      <h2>Phone</h2>
+      <p>+1 (555) 123-4567</p>
+
+      <h2>Email</h2>
+      <p>support@mywebapp.com</p>
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+  <section>
+    <h2>Send Us a Message</h2>
+    <form action="#" method="POST">
+      <label for="name">Name:</label><br />
+      <input type="text" id="name" name="name" required /><br /><br />
+
+      <label for="email">Email:</label><br />
+      <input type="email" id="email" name="email" required /><br /><br />
+
+      <label for="message">Message:</label><br />
+      <textarea id="message" name="message" rows="5" required></textarea><br /><br />
+
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+</body>
+</html>
