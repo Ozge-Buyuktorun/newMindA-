@@ -82,9 +82,13 @@
  - server.js # Main server file for handling routes and requests
 
 ## 🔹 Page's Screenshot
- - ![Home Page](assets/screenshots/homePage.png)
- - ![Product Page](assets/screenshots/productPage.png)
- - ![Contact Page](assets/screenshots/contactPage.png)
+The pages displayed in the screenshot below have been created as dummy pages.
+These three HTML files serve as placeholders and were developed to facilitate understanding of the underlying logic
+during backend and API development.
+
+- ![Home Page](assets/screenshots/homePage.png)
+- ![Product Page](assets/screenshots/productPage.png)
+- ![Contact Page](assets/screenshots/contactPage.png)
 ## 🔹 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
@@ -92,3 +96,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🔹 Acknowledgements
 
 - Thanks to all contributors for their support and ideas.
+
