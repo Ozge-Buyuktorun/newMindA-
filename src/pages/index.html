@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <title>Home | My Web App</title>
+  <style>
+    :root {
+      --primary-color: #4361ee;
+      --secondary-color: #3a0ca3;
+      --text-color: #2b2d42;
+      --light-color: #f8f9fa;
+      --accent-color: #4cc9f0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: #f8f9fa;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    header {
+      background-color: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0;
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: var(--primary-color);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-color);
+    }
+
+    .hero {
+      background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+      color: white;
+      padding: 5rem 0;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: white;
+      color: var(--primary-color);
+      padding: 0.75rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    section {
+      padding: 5rem 0;
+    }
+
+    .about {
+      background-color: white;
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .about-text h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary-color);
+    }
+
+    .features {
+      margin-top: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .feature-card {
+      background-color: var(--light-color);
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .feature-card i {
+      color: var(--primary-color);
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .testimonials {
+      background-color: var(--light-color);
+      text-align: center;
+    }
+
+    .testimonials h2 {
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      color: var(--primary-color);
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .testimonial-card {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .testimonial-card p {
+      font-style: italic;
+      margin-bottom: 1.5rem;
+    }
+
+    .client-name {
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+
+    footer {
+      background-color: var(--text-color);
+      color: white;
+      padding: 3rem 0;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+
+    .footer-copyright {
+      text-align: center;
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        gap: 1rem;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .about-content {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+  <!-- Navigation -->
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">My Home Page</div>
+        <div class="nav-links">
+          <a href="/">Home</a>
+          <a href="/products">Products</a>
+          <a href="/contact">Contact</a>
+          <!-- Return Button -->
+          <a href="http://localhost:3000" class="return-button" title="Return to Homepage">
+            <i class="fas fa-home"></i>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1>Welcome to Our Website</h1>
+      <p>Explore our products and feel free to get in touch. We provide high-quality services to meet your needs.</p>
+      <a href="/products" class="btn">Explore Products</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about">
+    <div class="container">
+      <div class="about-content">
+        <div class="about-text">
+          <h2>About Us</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vestibulum, sem at condimentum hendrerit,
+            elit risus congue erat, nec luctus nulla elit nec diam.</p>
+
+          <div class="features">
+            <div class="feature-card">
+              <i class="fas fa-history"></i>
+              <h3>Experience</h3>
+              <p>Over 10 years of industry experience</p>
+            </div>
+            <div class="feature-card">
+              <i class="fas fa-users"></i>
+              <h3>Customer Focus</h3>
+              <p>Customer-focused approach to service</p>
+            </div>
+            <div class="feature-card">
+              <i class="fas fa-headset"></i>
+              <h3>Support</h3>
+              <p>Reliable support team available 24/7</p>
+            </div>
+          </div>
+        </div>
+        <div class="about-image">
+          <img src="/api/placeholder/500/400" alt="About Us" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials">
+    <div class="container">
+      <h2>What Our Clients Say</h2>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <p>"Great service and fast delivery! The team was responsive and professional from start to finish."</p>
+          <div class="client-name">Jane Doe</div>
+        </div>
+        <div class="testimonial-card">
+          <p>"Amazing quality. Will come back again! I've tried many services before, but this one exceeded my
+            expectations."</p>
+          <div class="client-name">John Smith</div>
+        </div>
+        <div class="testimonial-card">
+          <p>"The best customer service I've experienced in years. Every interaction was smooth and efficient."</p>
+          <div class="client-name">Emma Johnson</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>My Home Page</h3>
+          <p>Providing quality services since 2015.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <p><a href="/">Home</a></p>
+          <p><a href="/products">Products</a></p>
+          <p><a href="/contact">Contact</a></p>
+        </div>
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <p>Email: info@mywebapp.com</p>
+          <p>Phone: (123) 456-7890</p>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <p>&copy; 2025 MyWebApp. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

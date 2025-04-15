@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node", // Resolve modules like Node.js
+    "module": "ESNext", // Enable ECMAScript module syntax (supports import.meta.url)
+    "target": "ESNext", // Compile to latest ECMAScript version
+    "strict": true, // Enable all strict type-checking options
+    "allowImportingTsExtensions": true, // Disallow .ts extensions in imports
+    "noEmit": true, // Do not emit any compiled files
+    "types": ["node"], // Include type definitions for Node.js
+    "lib": ["dom", "es2020"], // Include DOM and ES2020 standard library definitions
+    "outDir": "./dist", // Output directory for compiled files
+    "rootDir": "./src", // Root directory of input files
+    "removeComments": false, // Keep comments in the output
+    "importHelpers": true, // Use external helpers from 'tslib'
+    "sourceMap": true, // Generate source maps for debugging
+    "strictNullChecks": true, // Enable strict null checks
+    "noImplicitThis": true, // Error on implicit 'this' type
+    "baseUrl": "./", // Base URL for non-relative module imports
+    "paths": {
+      "*": ["node_modules/*"]
+    },
+    "typeRoots": ["./node_modules/@types", "./src/types"], // Directories to search for type definitions
+    "esModuleInterop": true, // Enable default imports from CommonJS modules
+    "resolveJsonModule": true, // Allow importing .json files as modules
+    "skipLibCheck": true, // Skip type checking of declaration files
+    "forceConsistentCasingInFileNames": true // Enforce consistent casing in imports
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"],
+  "ts-node": {
+    "esm": true,
+    "transpileOnly": true
+  }
+}

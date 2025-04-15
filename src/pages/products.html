@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <title>Products | My Web App</title>
+  <style>
+    :root {
+      --primary-color: #4f46e5;
+      --secondary-color: #818cf8;
+      --dark-color: #1f2937;
+      --light-color: #f9fafb;
+      --success-color: #10b981;
+      --box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f3f4f6;
+      color: var(--dark-color);
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+    header {
+      background-color: white;
+      box-shadow: var(--box-shadow);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark-color);
+      font-weight: 500;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-color);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: var(--primary-color);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-links a.active {
+      color: var(--primary-color);
+    }
+
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Product Cards */
+    .product-section {
+      padding: 60px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title h2 {
+      font-size: 32px;
+      color: var(--dark-color);
+      margin-bottom: 16px;
+    }
+
+    .section-title p {
+      color: #6b7280;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+
+    .product-card {
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+      transition: transform 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .product-image {
+      height: 200px;
+      background-color: #e5e7eb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #9ca3af;
+    }
+
+    .product-info {
+      padding: 24px;
+    }
+
+    .product-name {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--dark-color);
+    }
+
+    .product-description {
+      color: #6b7280;
+      margin-bottom: 16px;
+    }
+
+    .product-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 16px;
+    }
+
+    .product-price {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--primary-color);
+    }
+
+    .product-rating {
+      color: #fbbf24;
+      font-size: 16px;
+    }
+
+    .product-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: 500;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background-color: #4338ca;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background-color: white;
+      color: var(--primary-color);
+      border: 1px solid var(--primary-color);
+    }
+
+    .btn-secondary:hover {
+      background-color: #f3f4f6;
+      transform: translateY(-2px);
+    }
+
+    /* Comparison Table */
+    .comparison-section {
+      padding: 40px 0 60px;
+    }
+
+    .table-container {
+      overflow-x: auto;
+      border-radius: 10px;
+      box-shadow: var(--box-shadow);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: white;
+      overflow: hidden;
+    }
+
+    th,
+    td {
+      padding: 16px 24px;
+      text-align: left;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    th {
+      background-color: #f9fafb;
+      font-weight: 600;
+      color: var(--dark-color);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:hover td {
+      background-color: #f3f4f6;
+    }
+
+    /* Features Section */
+    .features-section {
+      padding: 60px 0;
+      background-color: #fff;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .feature-card {
+      padding: 24px;
+      border-radius: 10px;
+      background-color: white;
+      box-shadow: var(--box-shadow);
+      transition: transform 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .feature-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      background-color: rgba(79, 70, 229, 0.1);
+      color: var(--primary-color);
+      border-radius: 10px;
+      margin-bottom: 16px;
+    }
+
+    .feature-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--dark-color);
+    }
+
+    .feature-description {
+      color: #6b7280;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      padding: 80px 0;
+      background-color: var(--primary-color);
+      color: white;
+      text-align: center;
+    }
+
+    .cta-content {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .cta-title {
+      font-size: 32px;
+      margin-bottom: 16px;
+    }
+
+    .cta-description {
+      margin-bottom: 32px;
+    }
+
+    .btn-light {
+      background-color: white;
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+
+    .btn-light:hover {
+      background-color: #f3f4f6;
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--dark-color);
+      color: white;
+      padding: 40px 0;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+    }
+
+    .footer-links a {
+      color: #d1d5db;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .copyright {
+      margin-top: 20px;
+      color: #9ca3af;
+      font-size: 14px;
+    }
+
+    /* Animation */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate {
+      animation: fadeIn 0.5s ease forwards;
+    }
+
+    .animate-delay-1 {
+      opacity: 0;
+      animation-delay: 0.1s;
+    }
+
+    .animate-delay-2 {
+      opacity: 0;
+      animation-delay: 0.2s;
+    }
+
+    .animate-delay-3 {
+      opacity: 0;
+      animation-delay: 0.3s;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .product-actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      th,
+      td {
+        padding: 12px 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="/" class="logo">My Product Page</a>
+        <div class="nav-links">
+          <a href="/products" class="active">Products</a>
+          <a href="/contact">Contact</a>
+          <!-- Return Button -->
+          <a href="http://localhost:3000" class="return-button" title="Return to Homepage">
+            <i class="fas fa-home"></i>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1>Our Production</h1>
+      <p>Meet our top quality and affordable products. We offer solutions for all your needs.</p>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section class="product-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Featured Products</h2>
+        <p>Discover our most preferred products.</p>
+      </div>
+
+      <div class="product-grid animate animate-delay-1">
+        <div class="product-card">
+          <div class="product-image">
+            <p>Production A's Images</p>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Product A</h3>
+            <p class="product-description">High performance and affordable. Perfect for everyday use.</p>
+            <div class="product-meta">
+              <div class="product-price">₺899,99</div>
+              <div class="product-rating">★★★★☆</div>
+            </div>
+            <div class="product-actions">
+              <a href="#" class="btn btn-primary">Buy</a>
+              <a href="#" class="btn btn-secondary">Details</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">
+            <p>Production B's Image</p>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Product B</h3>
+            <p class="product-description">Professional-grade equipment. Designed for serious users.</p>
+            <div class="product-meta">
+              <div class="product-price">₺1.899,99</div>
+              <div class="product-rating">★★★★★</div>
+            </div>
+            <div class="product-actions">
+              <a href="#" class="btn btn-primary">Buys</a>
+              <a href="#" class="btn btn-secondary">Details</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">
+            <p>Production C's Image</p>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Product C</h3>
+            <p class="product-description">Compact and portable. For traveling and on-the-go users.</p>
+            <div class="product-meta">
+              <div class="product-price">₺1.299,99</div>
+              <div class="product-rating">★★★★☆</div>
+            </div>
+            <div class="product-actions">
+              <a href="#" class="btn btn-primary">Buys</a>
+              <a href="#" class="btn btn-secondary">Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Comparison -->
+  <section class="comparison-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Compare of All Production</h2>
+        <p>Compare the features of our products and choose the one that best suits your needs.</p>
+      </div>
+
+      <div class="table-container animate animate-delay-2">
+        <table>
+          <thead>
+            <tr>
+              <th>Products</th>
+              <th>Prices</th>
+              <th>Point</th>
+              <th>Features</th>
+              <th>Guarantee</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Product A</strong></td>
+              <td>₺899,99</td>
+              <td>★★★★☆</td>
+              <td>Basic Feature, 64GB storage</td>
+              <td>1 year</td>
+            </tr>
+            <tr>
+              <td><strong>Product B</strong></td>
+              <td>₺1.899,99</td>
+              <td>★★★★★</td>
+              <td>Pro-Features, 256GB storage</td>
+              <td>2 year</td>
+            </tr>
+            <tr>
+              <td><strong>Product C</strong></td>
+              <td>₺1.299,99</td>
+              <td>★★★★☆</td>
+              <td>Compact design, 128GB storage</td>
+              <td>2 year</td>
+            </tr>
+            <tr>
+              <td><strong>Product D</strong></td>
+              <td>₺2.499,99</td>
+              <td>★★★★★</td>
+              <td>Premium features, 512GB storage</td>
+              <td>3 year</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Product Features</h2>
+        <p>Main feature for all production</p>
+      </div>
+
+      <div class="features-grid animate animate-delay-3">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </div>
+          <h3 class="feature-title">High performance</h3>
+          <p class="feature-description">Equipped with the latest technology, our products operate with high
+            performance.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </div>
+          <h3 class="feature-title">Long Life</h3>
+          <p class="feature-description">You can use it for many years thanks to durable materials and quality
+            production</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M18 8H19C20.1046 8 21 8.89543 21 10V16C21 17.1046 20.1046 18 19 18H5C3.89543 18 3 17.1046 3 16V10C3 8.89543 3.89543 8 5 8H6M15 8H9M15 8C15 6.34315 13.6569 5 12 5C10.3431 5 9 6.34315 9 8M15 8C15 9.65685 13.6569 11 12 11C10.3431 11 9 9.65685 9 8"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M3 13H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </div>
+          <h3 class="feature-title">User Friendly</h3>
+          <p class="feature-description">It appeals to users of all ages with its easy operation and intuitive
+            interface.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <h3 class="feature-title">Quality Guarantee</h3>
+          <p class="feature-description">All our products undergo extensive testing and come with a minimum 1-year
+            warranty.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="cta-title">Order Now </h2>
+        <p class="cta-description">Explore our products and choose the one that suits you best.
+          Free shipping and 30-day return guarantee on all orders.</p>
+        <a href="#" class="btn btn-light">Alışverişe Başla</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-links">
+          <a href="/about">About Us</a>
+          <a href="/products">Productions</a>
+          <a href="/contact">Contacts</a>
+          <a href="/privacy"></a>
+        </div>
+        <p class="copyright">&copy; 2025 My Product Page.All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Animation on scroll
+    document.addEventListener('DOMContentLoaded', function () {
+      const animatedElements = document.querySelectorAll('.animate');
+
+      function checkIfInView() {
+        animatedElements.forEach(function (element) {
+          const elementPosition = element.getBoundingClientRect().top;
+          const windowHeight = window.innerHeight;
+
+          if (elementPosition < windowHeight - 100) {
+            element.style.opacity = '1';
+          }
+        });
+      }
+
+      window.addEventListener('scroll', checkIfInView);
+      checkIfInView();
+    });
+  </script>
+</body>
+
+</html>

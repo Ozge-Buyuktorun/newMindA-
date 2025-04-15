@@ -1,0 +1,33 @@
+{
+  "name": "s1",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "nodemon --watch src --ext ts,html,css,json --exec ts-node src/index.ts"  
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/ozgeesert/nodejs-s1-ozge.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/ozgeesert/nodejs-s1-ozge/issues"
+  },
+  "homepage": "https://gitlab.com/ozgeesert/nodejs-s1-ozge#readme",
+  "devDependencies": {
+    "@types/express": "^5.0.1",
+    "@types/node": "^22.14.1",
+    "nodemon": "^3.1.9",
+    "ts-node": "^10.9.2",
+    "tslib": "^2.8.1",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "npx": "^3.0.0"
+  }
+}

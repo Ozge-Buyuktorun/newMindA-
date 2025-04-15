@@ -1,0 +1,179 @@
+[
+    {
+      "name": "Gamze",
+      "surname": "Bilgin",
+      "email": "gamze.bilgin@aitechcorp.com",
+      "position": "Machine Learning Specialist",
+      "start_date": "2025-01-10",
+      "salary": 120608
+    },
+    {
+      "name": "Serkan",
+      "surname": "Ihsanoglu",
+      "email": "serkan.ihsanoglu@aitechcorp.com",
+      "position": "AI Engineer",
+      "start_date": "2024-11-01",
+      "salary": 145853
+    },
+    {
+      "name": "Mehmet",
+      "surname": "Durdu",
+      "email": "mehmet.durdu@aitechcorp.com",
+      "position": "Frontend Developer",
+      "start_date": "2024-10-25",
+      "salary": 81950
+    },
+    {
+      "name": "Tugce",
+      "surname": "Akca",
+      "email": "tugce.akca@aitechcorp.com",
+      "position": "Natural Language Processing Specialist",
+      "start_date": "2024-09-12",
+      "salary": 140497
+    },
+    {
+      "name": "Onur",
+      "surname": "Akcay",
+      "email": "onur.akcay@aitechcorp.com",
+      "position": "Computer Vision Specialist",
+      "start_date": "2021-01-28",
+      "salary": 122389
+    },
+    {
+      "name": "Ahmet",
+      "surname": "Aydin",
+      "email": "ahmet.aydin@aitechcorp.com",
+      "position": "Software Developer",
+      "start_date": "2023-04-15",
+      "salary": 95000
+    },
+    {
+      "name": "Busra",
+      "surname": "Guler",
+      "email": "busra.guler@aitechcorp.com",
+      "position": "Data Engineer",
+      "start_date": "2022-06-23",
+      "salary": 115000
+    },
+    {
+      "name": "Baran",
+      "surname": "Yilmaz",
+      "email": "baran.yilmaz@aitechcorp.com",
+      "position": "Data Scientist",
+      "start_date": "2024-08-12",
+      "salary": 137000
+    },
+    {
+      "name": "Derya",
+      "surname": "Yildirim",
+      "email": "derya.yildirim@aitechcorp.com",
+      "position": "AI Product Manager",
+      "start_date": "2020-03-05",
+      "salary": 145000
+    },
+    {
+      "name": "Emre",
+      "surname": "Kara",
+      "email": "emre.kara@aitechcorp.com",
+      "position": "MLOps Engineer",
+      "start_date": "2022-10-01",
+      "salary": 130000
+    },
+    {
+      "name": "Furkan",
+      "surname": "Celik",
+      "email": "furkan.celik@aitechcorp.com",
+      "position": "Backend Developer",
+      "start_date": "2024-01-15",
+      "salary": 120000
+    },
+    {
+      "name": "Gizem",
+      "surname": "Dogan",
+      "email": "gizem.dogan@aitechcorp.com",
+      "position": "Research Engineer",
+      "start_date": "2021-07-20",
+      "salary": 127000
+    },
+    {
+      "name": "Burak",
+      "surname": "Ozturk",
+      "email": "burak.ozturk@aitechcorp.com",
+      "position": "Software Architect",
+      "start_date": "2019-02-17",
+      "salary": 175000
+    },
+    {
+      "name": "Eda",
+      "surname": "Aksu",
+      "email": "eda.aksu@aitechcorp.com",
+      "position": "Computer Vision Specialist",
+      "start_date": "2023-08-23",
+      "salary": 110000
+    },
+    {
+      "name": "Tugay",
+      "surname": "Kucuk",
+      "email": "tugay.kucuk@aitechcorp.com",
+      "position": "AI Researcher",
+      "start_date": "2022-05-14",
+      "salary": 145000
+    },
+    {
+      "name": "Zeynep",
+      "surname": "Simsek",
+      "email": "zeynep.simsek@aitechcorp.com",
+      "position": "Natural Language Processing Specialist",
+      "start_date": "2024-11-01",
+      "salary": 136000
+    },
+    {
+      "name": "Emine",
+      "surname": "Basar",
+      "email": "emine.basar@aitechcorp.com",
+      "position": "Data Scientist",
+      "start_date": "2020-08-30",
+      "salary": 125000
+    },
+    {
+      "name": "Yusuf",
+      "surname": "Koksal",
+      "email": "yusuf.koksal@aitechcorp.com",
+      "position": "Software Developer",
+      "start_date": "2023-03-21",
+      "salary": 105000
+    },
+    {
+      "name": "Seda",
+      "surname": "Guzel",
+      "email": "seda.guzel@aitechcorp.com",
+      "position": "Test Engineer",
+      "start_date": "2021-12-18",
+      "salary": 95000
+    },
+    {
+      "name": "Murat",
+      "surname": "Yilmaz",
+      "email": "murat.yilmaz@aitechcorp.com",
+      "position": "AI Consultant",
+      "start_date": "2022-01-01",
+      "salary": 155000
+    },
+    {
+      "name": "Cagil",
+      "surname": "Taskin",
+      "email": "cagil.taskin@aitechcorp.com",
+      "position": "MLOps Engineer",
+      "start_date": "2023-07-10",
+      "salary": 130000
+    },
+    {
+      "name": "Feyza",
+      "surname": "Sahin",
+      "email": "feyza.sahin@aitechcorp.com",
+      "position": "Backend Developer",
+      "start_date": "2021-05-15",
+      "salary": 115000
+    }
+  ]
+  

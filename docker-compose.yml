@@ -1,0 +1,33 @@
+version: '3.8'
+# To run the docker --> docker-compose up --build
+services:
+  employee-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/nodejs-s1-proje
+    command: npm run dev
+    environment:
+      - NODE_ENV=development
+    #depends_on:
+    #  - db  # Eğer bir veritabanı servisi varsa, ona bağlı çalışmasını sağlamak için
+    #networks:
+    #  - app-network
+
+# Eğer veritabanı kullanıyorsanız, aşağıdaki gibi bir db servisi ekleyebilirsiniz:
+#   db:
+#     image: mysql:5.7
+#     environment:
+#       MYSQL_ROOT_PASSWORD: root
+#       MYSQL_DATABASE: employee_db
+#     ports:
+#       - "3306:3306"
+#     networks:
+#       - app-network
+
+#networks:
+ # app-network:
+  #  driver: bridge
