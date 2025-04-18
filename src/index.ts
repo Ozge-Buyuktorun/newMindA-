@@ -2,9 +2,9 @@ import * as http from 'http';
 import * as fs from 'fs';
 import * as path from 'path';
 import { IncomingMessage, ServerResponse } from 'http';
-
-import { handleApiRoutes } from '../src/routes/apiRoutes.ts';
 import { handlePageRoutes } from '../src/routes/pageRoutes.ts';
+import { apiRoutes } from './api/routes.ts';
+
 
 // Create the HTTP server
 const server = http.createServer((req: IncomingMessage, res: ServerResponse): void => {
@@ -23,11 +23,12 @@ const server = http.createServer((req: IncomingMessage, res: ServerResponse): vo
     }
 
     // Handle API and Page routes
-    if (req.url && (req.url === ('api/employeeList') || req.url === ('api/averageSalary') || req.url ===('api/oldestEmployee'))) {
-        handleApiRoutes(req, res);
+    if (req.url && apiRoutes[req.url]) {
+        apiRoutes[req.url](req, res);
     } else {
         handlePageRoutes(req, res);
     }
+
 });
 
 // Start the server

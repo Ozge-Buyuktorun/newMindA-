@@ -35,7 +35,7 @@ export const apiController = (req: IncomingMessage, res: ServerResponse): boolea
     // API Endpoints
     const endpoints: Record<string, () => boolean> = {
         // List of all employees without salary information
-        '/employeeList': () => {
+        '/api/employeeList': () => {
             readEmployeeDate((employees:EmployeeDate[]) => {
                 // Remove salary field
                 const sanitized = employees.map(({ salary, ...rest }) => rest);
@@ -46,7 +46,7 @@ export const apiController = (req: IncomingMessage, res: ServerResponse): boolea
         },
 
         // Find the oldest employee from the data
-        '/oldestEmployee': () => {
+        '/api/oldestEmployee': () => {
             readEmployeeDate((employees:EmployeeDate[]) => {
                 const oldest = employees.reduce((prev, curr) => (curr.start_date > prev.start_date ? curr : prev));
                 res.writeHead(200, { 'Content-Type': 'application/json' });
@@ -56,7 +56,7 @@ export const apiController = (req: IncomingMessage, res: ServerResponse): boolea
         },
 
         // Calculate Average Salary
-        '/averageSalary': () => {
+        '/api/averageSalary': () => {
             readEmployeeDate((employees:EmployeeDate[]) => {
                 const total = employees.reduce((sum, emp) => sum + emp.salary, 0);
                 const average = total / employees.length;

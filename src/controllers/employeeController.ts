@@ -1,29 +1,21 @@
 import * as fs from "fs";
 import * as path from 'path';
-import { ServerResponse } from 'http';
+import { IncomingMessage, Server, ServerResponse } from 'http';
+import https from 'https';
 import { fileURLToPath } from "url";
 import { sendJsonResponse } from "../utils/apiResponse.ts";
+import type { ProductResponse, Product, QueryParams } from "../types/productService.ts";
+import type { EmployeeDate, ApiResponse, } from "../types/type.ts";
 
-type EmployeeDate = {
-    name: string;
-    surname: string;
-    email: string;
-    position: string;
-    start_date: string;
-    salary: number;
-};
-type ApiResponse<T> = {
-    success: boolean;
-    error?: string;
-    data?: T;
-};
+
 // Global Variables
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const dataPath: string = path.resolve(__dirname, '../data/employeeList.json');
 
 export default class EmployeeController {
-    private employees: EmployeeDate[] = [];
+    private readonly employees: EmployeeDate[] = [];
+    private readonly API_URL = "https://e-commerce-m3d4.onrender.com/products";
 
     constructor() {
         try {
@@ -36,7 +28,7 @@ export default class EmployeeController {
                 console.error('Unknown error loading employee data');
             }
         }
-    }
+    };
 
     private parseEmployeeData(data: string): EmployeeDate[] {
         try {
@@ -68,7 +60,7 @@ export default class EmployeeController {
             }
             return [];
         }
-    }
+    };
 
     public getEmployees(callback: (err: NodeJS.ErrnoException | null, employees?: EmployeeDate[]) => void): void {
         fs.readFile(dataPath, 'utf8', (err: NodeJS.ErrnoException | null, data: string) => {
@@ -88,8 +80,9 @@ export default class EmployeeController {
                 }
             }
         });
-    }
-    public getEmployeeList = (res: ServerResponse): void => {
+    };
+
+    public getEmployeeList = (req: IncomingMessage, res: ServerResponse): void => {
         this.getEmployees((err: NodeJS.ErrnoException | null, employees?: EmployeeDate[]) => {
             if (err || !employees) {
                 const response: ApiResponse<undefined> = {
@@ -111,7 +104,7 @@ export default class EmployeeController {
         });
     };
 
-    public getOldestEmployee = (res: ServerResponse): void => {
+    public getOldestEmployee = (req: IncomingMessage, res: ServerResponse): void => {
         this.getEmployees((err: NodeJS.ErrnoException | null, employees?: EmployeeDate[]) => {
             if (err || !employees || employees.length === 0) {
                 const response: ApiResponse<null> = {
@@ -135,7 +128,7 @@ export default class EmployeeController {
         });
     };
 
-    public getAverageSalary = (res: ServerResponse): void => {
+    public getAverageSalary = (req: IncomingMessage, res: ServerResponse): void => {
         this.getEmployees((err: NodeJS.ErrnoException | null, employees?: EmployeeDate[]) => {
             if (err || !employees || employees.length === 0) {
                 const response: ApiResponse<null> = {
@@ -157,4 +150,4 @@ export default class EmployeeController {
             res.end(JSON.stringify(response));
         });
     };
-};
+};  

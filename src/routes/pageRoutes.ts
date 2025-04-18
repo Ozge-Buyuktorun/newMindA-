@@ -29,7 +29,7 @@ export function handlePageRoutes(req: any, res: any) {
 
     if (!filePath) {
         res.writeHead(404, { 'Content-Type': 'text/plain' });
-        return res.end('404 - Page Not Found');
+        return res.end('404 - Page Not Found. Please check your URL.');
     }
 
     fs.readFile(filePath, (err, content) => {

@@ -2,7 +2,7 @@
 
 🚀 This project is a simple Node.js application that serves an Employee Management API. The API exposes endpoints to retrieve employee data, including the list of employees, the oldest employee, and the average salary of all employees.
 
-## 🔹 Folder Tree
+## 🔹 General Folder Tree
       nodejs-s1-proje/
     ├── 📁 assets/
     ├── 📁 dist/
@@ -16,6 +16,39 @@
     ├── 📄 package.json
     ├── 📄 README.md
     └── 📄 tsconfig.json
+
+### Specific Folder Tree (in SRC Folder):
+
+    ├── api/
+    │   ├── api.ts
+    │   └── routes.ts
+    ├── controllers/
+    │   ├── employeeController.ts
+    │   ├── productServiceControl.md
+    │   ├── productServiceControl.ts
+    │   └── weatherServiceControl.ts
+    ├── data/
+    │   └── employeeList.json
+    ├── lib/
+    │   └── constants.ts
+    ├── pages/
+    │   ├── contact.html
+    │   ├── index.html
+    │   └── products.html
+    ├── postman/
+    ├── public/
+    │   └── styles.css
+    ├── routes/
+    │   ├── apiRoutes.ts
+    │   └── pageRoutes.ts
+    ├── types/
+    │   ├── productService.ts
+    │   ├── type.ts
+    │   └── weatherTypes.ts
+    ├── utils/
+    │   └── apiResponse.ts
+    └── index.ts
+
 
 
 ## 🔹 Features
@@ -59,7 +92,11 @@
     //or
     NODE_OPTIONS='--loader ts-node/esm' npx ts-node src/index.ts
     ```  
-
+8. To download geoip-lite package
+    ```bash
+      npm install geoip-lite
+      npm install --save-dev @types/geoip-lite
+    ```
 ## 🔹 API Endpoints
 
 1. 🔥 **GET `/employeeList`**

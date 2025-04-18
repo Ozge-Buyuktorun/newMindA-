@@ -12,7 +12,7 @@ COPY . .
 EXPOSE 3000
 
 # Since ts-node is installed for the development environment, we run it with ts-node
-CMD ["npm", "run", "dev"]
+CMD ["npx", "ts-node", "src/index.ts"]
 
 # we will run for a one time. --> docker build -t my-node-app
 # docker-compose up --build

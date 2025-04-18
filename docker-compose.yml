@@ -9,7 +9,7 @@ services:
       - "3000:3000"
     volumes:
       - .:/nodejs-s1-proje
-    command: npm run dev
+    command: npx ts-node src/index.ts
     environment:
       - NODE_ENV=development
     #depends_on:

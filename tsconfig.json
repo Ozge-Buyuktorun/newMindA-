@@ -17,9 +17,10 @@
     "noImplicitThis": true, // Error on implicit 'this' type
     "baseUrl": "./", // Base URL for non-relative module imports
     "paths": {
-      "*": ["node_modules/*"]
+      "*": ["node_modules/*"],
+      "@types/*": ["types/*"]
     },
-    "typeRoots": ["./node_modules/@types", "./src/types"], // Directories to search for type definitions
+    "typeRoots": ["./node_modules/@types", "./types"], // Directories to search for type definitions
     "esModuleInterop": true, // Enable default imports from CommonJS modules
     "resolveJsonModule": true, // Allow importing .json files as modules
     "skipLibCheck": true, // Skip type checking of declaration files
